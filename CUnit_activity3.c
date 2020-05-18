@@ -6,34 +6,20 @@
 * It will store the value and the unit 
 */
 typedef struct{
-  double value;
+  float value;
   char unit;        //'f' 'c' 'k' -> fahrenheit, celius and kelvin
 } _degree;
 
 
  /*hard coded input*/
    _degree degree1;
-   
    _degree degree2;
-   
    _degree degree3;
-
-   
-    _degree degree4;
-
-   
+   _degree degree4;
    _degree degree5;
- 
-   
    _degree degree6;
-
-   
-    _degree degree7;
-
-   
+   _degree degree7;
    _degree degree8;
- 
-   
    _degree degree9;
 
 
@@ -50,7 +36,7 @@ void display_degree(_degree *degree){
 * @param degree The degree structure pointer.
 * @return The converted value in fahrenheit
 */
-double conv_to_fah(_degree *degree){
+float conv_to_fah(_degree *degree){
     
     if(degree -> unit == 'c'){
         degree -> value = degree->value * (9.0/5) + 32;
@@ -67,7 +53,7 @@ double conv_to_fah(_degree *degree){
 * @param degree The degree structure pointer.
 * @return The converted value in celcius
 */
-double conv_to_cel(_degree *degree){
+float conv_to_cel(_degree *degree){
     
     if(degree -> unit == 'f'){
         degree -> value = (degree->value - 32) * (5.0/9);
@@ -84,7 +70,7 @@ double conv_to_cel(_degree *degree){
 * @param degree The degree structure pointer.
 * @return The converted value in kelvin
 */
-double conv_to_kel(_degree *degree){
+float conv_to_kel(_degree *degree){
     
     if(degree -> unit == 'c'){
         degree -> value = degree->value + 273.15; 
@@ -98,51 +84,46 @@ double conv_to_kel(_degree *degree){
 
 void test_degeeconv(void){
   CU_ASSERT((int)conv_to_fah(&degree1) == 93); //34°c to f
-  CU_ASSERT((int)conv_to_kel(&degree1) == 307);  //34°c to kel
   CU_ASSERT((int)conv_to_cel(&degree2) == 36); //98°f to cel
-  CU_ASSERT((int)conv_to_kel(&degree2) == 309);  //98°f to kel
   CU_ASSERT((int)conv_to_cel(&degree3) == -68.15); //205°k to cel
-  CU_ASSERT((int)conv_to_fah(&degree3) == -90.67);   //205°k to fah
+  CU_ASSERT((int)conv_to_kel(&degree4) == 291);   //18°c to kel
+  CU_ASSERT((int)conv_to_kel(&degree5) == 269);  //25°f to kel
+  CU_ASSERT((int)conv_to_fah(&degree6) == -249);  //117°k to fah
+  CU_ASSERT((int)conv_to_fah(&degree7) == 134);  //57°c to fah
+  CU_ASSERT((int)conv_to_kel(&degree8) == 280);  //46°f to kel
+  CU_ASSERT((int)conv_to_cel(&degree9) == 182);  //91°k to cel
+  
 }
 
 
 int main()
 { 
   /*hard coded input*/
-  // _degree degree1;
    degree1.value = 34;
    degree1.unit = 'c';
    
-  // _degree degree2;
    degree2.value = 98;
    degree2.unit = 'f';
    
-  // _degree degree3;
    degree3.value = 205;
    degree3.unit = 'k';
    
-   // _degree degree4;
    degree4.value = 18;
    degree4.unit = 'c';
    
- //  _degree degree5;
    degree5.value = 25;
    degree5.unit = 'f';
    
-  // _degree degree6;
    degree6.value = 117;
    degree6.unit = 'k';
    
-   // _degree degree7;
-   degree7.value = 34;
+   degree7.value = 57;
    degree7.unit = 'c';
-   
-  // _degree degree8;
-   degree8.value = 98;
+  
+   degree8.value = 46;
    degree8.unit = 'f';
    
-  // _degree degree9;
-   degree9.value = 205;
+   degree9.value = 91;
    degree9.unit = 'k';
   
   
