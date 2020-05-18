@@ -24,28 +24,28 @@ typedef struct{
    degree3.unit = 'k';
    
     _degree degree4;
-   degree1.value = 18;
-   degree1.unit = 'c';
+   degree4.value = 18;
+   degree4.unit = 'c';
    
    _degree degree5;
-   degree2.value = 25;
-   degree2.unit = 'f';
+   degree5.value = 25;
+   degree5.unit = 'f';
    
    _degree degree6;
-   degree3.value = 117;
-   degree3.unit = 'k';
+   degree6.value = 117;
+   degree6.unit = 'k';
    
     _degree degree7;
-   degree1.value = 34;
-   degree1.unit = 'c';
+   degree7.value = 34;
+   degree7.unit = 'c';
    
    _degree degree8;
-   degree2.value = 98;
-   degree2.unit = 'f';
+   degree8.value = 98;
+   degree8.unit = 'f';
    
    _degree degree9;
-   degree3.value = 205;
-   degree3.unit = 'k';
+   degree9.value = 205;
+   degree9.unit = 'k';
 
 
 /**
