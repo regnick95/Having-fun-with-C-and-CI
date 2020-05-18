@@ -1,5 +1,5 @@
 #include <CUnit/CUnit.h>
-#incude <CUnit/Basic.h>
+#include <CUnit/Basic.h>
 #include <stdio.h>
 #include "degree.h"
 
