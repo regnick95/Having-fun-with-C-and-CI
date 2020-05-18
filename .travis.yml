@@ -10,5 +10,6 @@ install:
 
 script:
   - echo "Reached Script Section"
-  - gcc degree/degree.c degree/main.c -o output -lcunit
+  #- gcc degree/degree.c degree/main.c -o output -lcunit
+  - gcc CUnit_activity3.c -o output -lcunit
   - ./output
