@@ -10,5 +10,5 @@ install:
 
 script:
   - echo "Reached Script Section"
-  - gcc   	Linkfile_multifile/demofile2.c Linkfile_multifile/file1.c  	Linkfile_multifile/file2.c -o output
+  - gcc   	degree/degree.c degree/main.c -o output
   - ./output
