@@ -1,6 +1,5 @@
-/******************************************************************************
-
-
+#include <CUnit/CUnit.h>
+#include <CUnit/Basic.h>
 #include <stdio.h>
 
 /*structure definition
@@ -10,6 +9,43 @@ typedef struct{
   double value;
   char unit;        //'f' 'c' 'k' -> fahrenheit, celius and kelvin
 } _degree;
+
+/*hard coded input*/
+   _degree degree1;
+   degree1.value = 34;
+   degree1.unit = 'c';
+   
+   _degree degree2;
+   degree2.value = 98;
+   degree2.unit = 'f';
+   
+   _degree degree3;
+   degree3.value = 205;
+   degree3.unit = 'k';
+   
+    _degree degree4;
+   degree1.value = 18;
+   degree1.unit = 'c';
+   
+   _degree degree5;
+   degree2.value = 25;
+   degree2.unit = 'f';
+   
+   _degree degree6;
+   degree3.value = 117;
+   degree3.unit = 'k';
+   
+    _degree degree7;
+   degree1.value = 34;
+   degree1.unit = 'c';
+   
+   _degree degree8;
+   degree2.value = 98;
+   degree2.unit = 'f';
+   
+   _degree degree9;
+   degree3.value = 205;
+   degree3.unit = 'k';
 
 
 /**
@@ -71,56 +107,23 @@ double conv_to_kel(_degree *degree){
     return degree->value;
 }
 
-
-
+void test_degeeconv(void){
+  CU_ASSERT((int)conv_to_fah(degree1) == 93); //34°c to f
+  CU_ASSERT((int)conv_to_kel(degree1) == 307);  //34°c to kel
+  CU_ASSERT((int)conv_to_cel(degree2) == 36); //98°f to cel
+  CU_ASSERT((int)conv_to_kel(degree2) == 309);  //98°f to kel
+  CU_ASSERT((int)conv_to_cel(degree3) == -68.15); //205°k to cel
+  CU_ASSERT((int)conv_to_fah(degree3) == -90.67);   //205°k to fah
+}
 
 
 int main()
-{
-    /*hard coded input*/
-   _degree degree1;
-   degree1.value = 34;
-   degree1.unit = 'c';
+{  
+  CU_initialize_registry();
+  CU_pSuite suite = CU_add_suite("conversion test suite",0,0);
+  CU_add_test(suite, "conversion test", test_degeeconv);
+  CU_basic_run_tests();
+  CU_cleanup_registry();
    
-   _degree degree2;
-   degree2.value = 98;
-   degree2.unit = 'f';
-   
-   _degree degree3;
-   degree3.value = 205;
-   degree3.unit = 'k';
-   
-    _degree degree4;
-   degree1.value = 18;
-   degree1.unit = 'c';
-   
-   _degree degree5;
-   degree2.value = 25;
-   degree2.unit = 'f';
-   
-   _degree degree6;
-   degree3.value = 117;
-   degree3.unit = 'k';
-   
-    _degree degree7;
-   degree1.value = 34;
-   degree1.unit = 'c';
-   
-   _degree degree8;
-   degree2.value = 98;
-   degree2.unit = 'f';
-   
-   _degree degree9;
-   degree3.value = 205;
-   degree3.unit = 'k';
-   
-   //conv_to_fah(&degree1);
-   display_degree(&degree1);
-   printf("%d° in celcius is %d° in fahrenheit\n",34, (int)conv_to_fah(&degree1));
-   printf("%d° in fahrenheit is %d° in celcius\n",98, (int)conv_to_cel(&degree2));
-   printf("%d° in kelvin is %d° in celcius\n",205, (int)conv_to_cel(&degree3));
-   
-   
-
-    return 0;
+  return 0;
 }
