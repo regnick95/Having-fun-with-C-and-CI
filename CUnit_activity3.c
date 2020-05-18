@@ -85,13 +85,13 @@ float conv_to_kel(_degree *degree){
 void test_degeeconv(void){
   CU_ASSERT((int)conv_to_fah(&degree1) == 93); //34°c to f
   CU_ASSERT((int)conv_to_cel(&degree2) == 36); //98°f to cel
-  CU_ASSERT((int)conv_to_cel(&degree3) == -68.15); //205°k to cel
+  CU_ASSERT((int)conv_to_cel(&degree3) == -68); //205°k to cel
   CU_ASSERT((int)conv_to_kel(&degree4) == 291);   //18°c to kel
   CU_ASSERT((int)conv_to_kel(&degree5) == 269);  //25°f to kel
   CU_ASSERT((int)conv_to_fah(&degree6) == -249);  //117°k to fah
   CU_ASSERT((int)conv_to_fah(&degree7) == 134);  //57°c to fah
   CU_ASSERT((int)conv_to_kel(&degree8) == 280);  //46°f to kel
-  CU_ASSERT((int)conv_to_cel(&degree9) == 182);  //91°k to cel
+  CU_ASSERT((int)conv_to_cel(&degree9) == -182);  //91°k to cel
   
 }
 
