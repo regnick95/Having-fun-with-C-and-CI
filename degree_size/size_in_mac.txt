@@ -1,0 +1,9 @@
+Mavericks-2:degree_size Reginald$ size degree1
+__TEXT	__DATA	__OBJC	others	dec	hex
+4096	4096	0	4294971392	4294979584	100003000	
+Mavericks-2:degree_size Reginald$ size degree2
+__TEXT	__DATA	__OBJC	others	dec	hex
+4096	4096	0	4294971392	4294979584	100003000	
+Mavericks-2:degree_size Reginald$ size degree3
+__TEXT	__DATA	__OBJC	others	dec	hex
+4096	4096	0	4294971392	4294979584	100003000
