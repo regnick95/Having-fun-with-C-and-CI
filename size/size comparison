@@ -1,0 +1,13 @@
+regnick95@Reginald:~/Desktop/size$ size add
+   text	   data	    bss	    dec	    hex	filename
+   1659	    560	      8	   2227	    8b3	add
+regnick95@Reginald:~/Desktop/size$ size add_wfunct
+   text	   data	    bss	    dec	    hex	filename
+   1760	    560	      8	   2328	    918	add_wfunct
+regnick95@Reginald:~/Desktop/size$ size add_wfunctandptr
+   text	   data	    bss	    dec	    hex	filename
+   1958	    568	      8	   2534	    9e6	add_wfunctandptr
+regnick95@Reginald:~/Desktop/size$ size add_wfunctptr
+   text	   data	    bss	    dec	    hex	filename
+   1961	    568	      8	   2537	    9e9	add_wfunctptr
+
