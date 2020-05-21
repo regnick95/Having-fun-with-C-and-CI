@@ -1,9 +1,0 @@
-   text	   data	    bss	    dec	    hex	filename
-   1832	    552	      8	   2392	    958	degree1
-regnick95@Reginald:~/Desktop/degree_size$ size degree2
-   text	   data	    bss	    dec	    hex	filename
-   2525	    560	      8	   3093	    c15	degree2
-regnick95@Reginald:~/Desktop/degree_size$ size degree3
-   text	   data	    bss	    dec	    hex	filename
-   2448	    552	      8	   3008	    bc0	degree3
-
