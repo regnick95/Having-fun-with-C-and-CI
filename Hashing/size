@@ -1,0 +1,6 @@
+   text	   data	    bss	    dec	    hex	filename
+   2358	    576	   1632	   4566	   11d6	Hashing
+regnick95@Reginald:~/Desktop/Hashing$ size Hashing2
+   text	   data	    bss	    dec	    hex	filename
+   2790	    592	     16	   3398	    d46	Hashing2
+
