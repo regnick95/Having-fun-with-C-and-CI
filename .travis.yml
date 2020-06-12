@@ -1,15 +1,21 @@
 language: c
 
 compiler:
-  - gcc
+  - gcc-avr
 before_install:
+  - sudo apt-get update -qq
   - sudo apt-get update
   - sudo apt-get -y install libcunit1 libcunit1-doc libcunit1-dev
 install:
   - echo  "Reached Install Section"
+  - sudo apt-get install -qq gcc-avr binutils-avr avr-libc
+  - sudo apt-get install avrdude
 
 script:
   - echo "Reached Script Section"
   #- gcc degree/degree.c degree/main.c -o output -lcunit
-  - gcc CUnit_activity3.c -o output -lcunit
-  - ./output
+  #- gcc CUnit_activity3.c -o output -lcunit
+  #- ./output
+  - avr-gcc -Os -DF_CPU=16000000UL -mmcu=atmega328p -c -o distance_warning.o Distance_warning/distance_warning.c
+  - avr-gcc -mmcu=atmega328p distance_warning.o -o distance_warning
+  - avr-objcopy -O ihex -R .eeprom distance_warning distance_warning.hex
