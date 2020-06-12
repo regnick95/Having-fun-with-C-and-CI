@@ -20,4 +20,4 @@ script:
   #- avr-gcc -mmcu=atmega328p distance_warning.o -o distance_warning
   - avr-gcc -DF_CPU=8000000 -mmcu=attiny85 -o distance_warning.elf distance_warning.o
   #- avr-objcopy -O ihex -R .eeprom distance_warning distance_warning.hex
-  avr-objcopy -O ihex distance_warning.elf distance_warning.hex
+  - avr-objcopy -O ihex distance_warning.elf distance_warning.hex
