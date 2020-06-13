@@ -1,7 +1,7 @@
 language: c
 
 compiler:
-  - gcc-avr
+  - gcc
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get update
@@ -16,8 +16,14 @@ script:
   #- gcc degree/degree.c degree/main.c -o output -lcunit
   #- gcc CUnit_activity3.c -o output -lcunit
   #- ./output
-  - avr-gcc -Os -DF_CPU=16000000UL -mmcu=atmega328p -c -o distance.o Distance_warning/distance.c
+  #- avr-gcc -Os -DF_CPU=16000000UL -mmcu=atmega328p -c -o distance.o Distance_warning/distance.c
   #- avr-gcc -mmcu=atmega328p distance_warning.o -o distance_warning
-  - avr-gcc -mmcu=atmega328p distance.o -o distance
+  #- avr-gcc -mmcu=atmega328p distance.o -o distance
   #- avr-objcopy -O ihex -R .eeprom distance_warning distance_warning.hex
-  - avr-objcopy -O ihex -R .eeprom distance distance.hex
+  #- avr-objcopy -O ihex -R .eeprom distance distance.hex
+  - avr-gcc -Os -DF_CPU=16000000UL -mmcu=atmega328p -c -o buzzer.o ECS/buzzer.c
+  - avr-gcc -Os -DF_CPU=16000000UL -mmcu=atmega328p -c -o distance.o ECS/distance.c
+  - avr-gcc -Os -DF_CPU=16000000UL -mmcu=atmega328p -c -o main.o ECS/main.c
+  - avr-gcc -mmcu=atmega328p buzzer.o distance.o main.o -o proj
+  - avr-objcopy -O ihex -R .eeprom project project.hex
+
