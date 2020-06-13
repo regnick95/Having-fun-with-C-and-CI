@@ -25,5 +25,5 @@ script:
   - avr-gcc -Os -DF_CPU=16000000UL -mmcu=atmega328p -c -o distance.o ECS/distance.c
   - avr-gcc -Os -DF_CPU=16000000UL -mmcu=atmega328p -c -o main.o ECS/main.c
   - avr-gcc -mmcu=atmega328p buzzer.o distance.o main.o -o proj
-  - avr-objcopy -O ihex -R .eeprom project project.hex
+  - avr-objcopy -O ihex -R .eeprom proj proj.hex
 
