@@ -16,8 +16,8 @@ script:
   #- gcc degree/degree.c degree/main.c -o output -lcunit
   #- gcc CUnit_activity3.c -o output -lcunit
   #- ./output
-  - avr-gcc -Os -DF_CPU=16000000UL -mmcu=atmega328p -c distance_warning.c
+  - avr-gcc -Os -DF_CPU=16000000UL -mmcu=atmega328p -c -o distance.o Distance_warning/distance.c
   #- avr-gcc -mmcu=atmega328p distance_warning.o -o distance_warning
-  - avr-gcc -DF_CPU=8000000 -mmcu=attiny85 -o distance_warning.elf distance_warning.o
+  - avr-gcc -mmcu=atmega328p distance.o -o distance
   #- avr-objcopy -O ihex -R .eeprom distance_warning distance_warning.hex
-  - avr-objcopy -O ihex distance_warning.elf distance_warning.hex
+  - avr-objcopy -O ihex -R .eeprom distance distance.hex
