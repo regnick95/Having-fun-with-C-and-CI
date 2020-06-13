@@ -38,6 +38,14 @@ int complete = 0;			//status of measure
 int cm = 0;					//store distance in cm
 
 
+/*function prototypes*/
+void play_sound();
+void beep();
+int getDistance();
+void HCSR04_setup();
+void sendPulse();
+
+
 int main(void){
 	HCSR04_setup();
   	while(1){
@@ -45,9 +53,9 @@ int main(void){
     	sendPulse();
     	cm = getDistance();
       	if(cm <= 45){
-        	beep(200, 1000);
+        	beep();
       	}
-    	Serial.println(cm);
+    	
   	}  
 }
 
@@ -55,21 +63,22 @@ int main(void){
 
 /*This function will play a sound for a certain duration*/
 
-void play_sound(float duration, float frequency){
-  float period = (1/frequency)*1000;	//calculate period in ms
-  float toggle_period = period/2;		//half period to toggle the out pin
-  long cycles = duration /period;		//the number of cycles for that duration
+void play_sound(){
+  int i;
+  int duration = 200;
+  int period = 1;		//period in ms
+  int cycles = duration /period;		//the number of cycles for that duration
   /*set buzzer pin to output*/
   buzzer_DDR |= 1 << buzzer_PIN;
   
-  for(long i = 0; i < cycles; i++)
+  for(i = 0; i < cycles; i++)
   {
   	/*wait for half a period before setting the buzzer to HIGH*/
-    _delay_ms(toggle_period); 			
+    _delay_us(500); 			
     buzzer_PORT |= (1 << buzzer_PIN); 
     
     /*wait for half a period before setting the buzzer to LOW*/
-    _delay_ms(toggle_period); 
+    _delay_us(500); 
      buzzer_PORT &= ~(1 << buzzer_PIN); 
   
   }  
@@ -77,11 +86,12 @@ void play_sound(float duration, float frequency){
 }
 
 /*This function will play 2 sound beep in between pauses*/
-void beep(float duration, float frequency){	//2000 1000
-   play_sound(duration,frequency);
+void beep(){	
+   play_sound();
    _delay_ms(200);
-   play_sound(duration, frequency);
+   play_sound();
    _delay_ms(500);
+
 } 
 
 
@@ -112,7 +122,7 @@ int getDistance(){
   } 
 
 void HCSR04_setup(){
-  	Serial.begin(9600);
+  	
   	sei();									//enable external register
     trig_DDR |= 1 << trig_PIN;				//set trigger pin to output for trigger
   	echo_DDR &= ~(1 << echo_PIN);			//set pin 8 to input for echo
